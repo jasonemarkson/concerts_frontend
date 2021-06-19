@@ -1,0 +1,1 @@
+// responsible for making the server call from the backend to the frontend / housing all the fetch requests associated with the models
