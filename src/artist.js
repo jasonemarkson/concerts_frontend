@@ -2,6 +2,7 @@ class Artist {
     // remember objects -- static is like constant in Ruby
     static all = []
     static artistContainer = document.getElementById('artist-container')
+    static artistForm = document.getElementById('artist-form')
 
     constructor({id, name}) {
         this.id = id;
@@ -10,6 +11,7 @@ class Artist {
         this.element = document.createElement('h3');
         this.element.dataset.id = this.id;
         this.element.id = `artist-${this.id}`;
+        this.element.addEventListener('click', this.handleClick)
         this.artistHTML()   
 
         Artist.all.push(this)
@@ -18,6 +20,10 @@ class Artist {
     artistHTML() {
         this.element.innerHTML += `
         <p>${this.name}</p>
+        <div id=artist-${this.id}-concerts-container>
+        </div>
+        <button>Concerts</button>
+        <button>Delete</button>
         `
         return this.element
     }
@@ -26,4 +32,22 @@ class Artist {
         // Artist.artistContainer.append(this.artistHTML()) ---  was appending artist two times
         Artist.artistContainer.append(this.element)
     }
+
+    static renderForm() {
+        Artist.artistForm.innerHTML += `
+        <form id='new-artist-form'>
+            Name: <input id="name">
+            <input type="submit">
+        </form>
+        `
+    }
+
+    handleClick(event) {
+        if (event.target.innerText === "Delete") {
+            artistService.deleteArtist(this.dataset.id)
+        } else if (event.target.innerText === "Concerts") {
+            debugger;
+        }
+    }
+
 }
