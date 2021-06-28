@@ -4,13 +4,13 @@ class ConcertService {
         this.endpoint = endpoint
     }
 
-    getConcerts() {
-        fetch(`${base_url}/concerts`)
+    getArtistsConcerts(id) {
+        fetch(`${base_url}/artists/${id}/concerts`)
         .then(response => response.json())
         .then(concerts => {
             for (const concert of concerts) {
                 const c = new Concert(concert);
-                c.appendConcertsToDom()
+                c.concertHTML()
             }
         })
     }

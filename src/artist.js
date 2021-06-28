@@ -20,10 +20,12 @@ class Artist {
     artistHTML() {
         this.element.innerHTML += `
         <p>${this.name}</p>
+        <div id="artist-${this.id}-concert-container" input="hidden">
         </div>
         <button>Concerts</button>
         <button>Delete</button>
         `
+        
         return this.element
     }
 
@@ -42,19 +44,19 @@ class Artist {
     }
 
     handleClick(event) {
-        if (event.target.innerText === "Delete") {
-            artistService.deleteArtist(this.dataset.id)
+        const id = this.dataset.id
+        const button = event.target
+        if (button.innerText === "Delete") {
+            artistService.deleteArtist(id)
         } 
-        // else if (event.target.innerText === "Concerts") {
-        //     // let concerts = []
-        //     debugger;
-        //     Concert.all.map(function(c) {
-        //         let data = parseInt(event.currentTarget.dataset)
-        //         c.artist_id === data.id
-        //     })
-        // Concert.appendConcertsToDom
-        // create function to add all this functionality into in the Concert class -- append the concerts for that artist to the DOM
-        // }
+        else if (button.innerText === "Concerts") {
+            concertService.getArtistsConcerts(id)
+            button.innerText = "Close"
+        }
+        else if (button.innerText === "Close") {
+            button.previousElementSibling.innerText = ""
+            button.innerText = "Concerts"
+        }
     }
 
 }

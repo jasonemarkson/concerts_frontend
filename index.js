@@ -18,7 +18,6 @@ function handleSubmit() {
 
 // concert class
 const concertService = new ConcertService(base_url)
-concertService.getConcerts()
 
 
 

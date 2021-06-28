@@ -1,6 +1,5 @@
 class Concert {
     static all = []
-    static concertContainer = document.getElementById('concert-container')
     static concertForm = document.getElementById('concert-form')
     
     constructor({id, venue, date, city, state, artist_id}) {
@@ -14,20 +13,15 @@ class Concert {
         this.element = document.createElement('li');
         this.element.dataset.id = this.id;
         this.element.id = `concert-${this.id}`;
-        // add event listener?
-        this.concertHTML()
     
         Concert.all.push(this)
     }
 
     concertHTML() {
-        this.element.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state}`
-
-        return this.element
-    }
-
-    appendConcertsToDom() {
-        document.body.appendChild(this.element)
+        let li = document.createElement('li');
+        li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state}`;
+        const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
+        concertContainer.append(li)
     }
 
     static renderForm() {
