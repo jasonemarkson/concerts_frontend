@@ -27,6 +27,19 @@ class Concert {
     }
 
     appendConcertsToDom() {
-        // debugger;
+        document.body.appendChild(this.element)
+    }
+
+    static renderForm() {
+        Concert.concertForm.innerHTML += `
+        <form id='new-concert-form'>
+            Venue: <input id="venue-concert-${this.id}">
+            Date: <input id="date-concert-${this.id}">
+            City: <input id="city-concert-${this.id}">
+            State: <input id="state-concert-${this.id}">
+            <input id="artist-id" value=${this.artist_id}>
+            <input type="submit">
+        </form>
+        `
     }
 }

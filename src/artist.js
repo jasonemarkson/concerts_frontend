@@ -20,7 +20,6 @@ class Artist {
     artistHTML() {
         this.element.innerHTML += `
         <p>${this.name}</p>
-        <div id=artist-${this.id}-concerts-container>
         </div>
         <button>Concerts</button>
         <button>Delete</button>
@@ -45,9 +44,17 @@ class Artist {
     handleClick(event) {
         if (event.target.innerText === "Delete") {
             artistService.deleteArtist(this.dataset.id)
-        } else if (event.target.innerText === "Concerts") {
-            debugger;
-        }
+        } 
+        // else if (event.target.innerText === "Concerts") {
+        //     // let concerts = []
+        //     debugger;
+        //     Concert.all.map(function(c) {
+        //         let data = parseInt(event.currentTarget.dataset)
+        //         c.artist_id === data.id
+        //     })
+        // Concert.appendConcertsToDom
+        // create function to add all this functionality into in the Concert class -- append the concerts for that artist to the DOM
+        // }
     }
 
 }
