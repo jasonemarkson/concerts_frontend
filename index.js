@@ -18,6 +18,16 @@ function handleSubmit() {
 
 // concert class
 const concertService = new ConcertService(base_url)
+Concert.concertForm.addEventListener('submit', handleConcertSubmit)
+
+function handleConcertSubmit() {
+    debugger;
+    event.preventDefault()
+    concertService.createConcert()
+    event.target.reset()
+}
+
+
 
 
 
