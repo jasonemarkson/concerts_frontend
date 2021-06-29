@@ -30,12 +30,12 @@ class Artist {
     }
 
     appendToDom() {
-        // Artist.artistContainer.append(this.artistHTML()) ---  was appending artist two times
         Artist.artistContainer.append(this.element)
     }
 
     static renderForm() {
         Artist.artistForm.innerHTML += `
+        <h4>Add a New Artist</h4>
         <form id='new-artist-form'>
             Name: <input id="name">
             <input type="submit">

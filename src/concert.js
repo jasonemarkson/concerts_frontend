@@ -20,18 +20,29 @@ class Concert {
     concertHTML() {
         let li = document.createElement('li');
         li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state}`;
+        li.style.fontWeight = 'normal'
         const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
         concertContainer.append(li)
+
+        // add concert button
+        const newConcertButton = document.createElement('button')
+        newConcertButton.innerText = "Add Concert"
+        concertContainer.append(newConcertButton)
+        newConcertButton.addEventListener('click', () => {
+            debugger;
+            Concert.renderForm(this)
+        })
     }
 
     static renderForm() {
+        debugger;
         Concert.concertForm.innerHTML += `
         <form id='new-concert-form'>
-            Venue: <input id="venue-concert-${this.id}">
-            Date: <input id="date-concert-${this.id}">
-            City: <input id="city-concert-${this.id}">
-            State: <input id="state-concert-${this.id}">
-            <input id="artist-id" value=${this.artist_id}>
+            Venue: <input id="venue-concert-${this.id}"><br>
+            Date: <input id="date-concert-${this.id}"><br>
+            City: <input id="city-concert-${this.id}"><br>
+            State: <input id="state-concert-${this.id}"><br>
+            <input id="artist-id" value=${this.artist_id} type=><br>
             <input type="submit">
         </form>
         `
