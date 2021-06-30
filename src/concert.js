@@ -1,6 +1,6 @@
 class Concert {
     static all = []
-    static concertForm = document.getElementById('concert-form')
+    // static newConcertForm = document.getElementById('new-concert-form')
     
     constructor({id, venue, date, city, state, artist_id}) {
         this.id = id;
@@ -36,25 +36,24 @@ class Concert {
     static renderForm() {
         let e = event.target.parentElement
         const artistName = e.previousElementSibling.innerText
-
+        
         e.innerHTML += `
         -------------------------------------------------------------
         <p>
         <h4>Add a new ${artistName} Concert</h4>
         <form id='new-concert-form'>
-            Venue: <input id="concert-venue"><br>
-            Date: <input id="concert-date"><br>
-            City: <input id="concert-city"><br>
-            State: <input id="concert-state"><br>
-            <input id="concert-artist-id" value=${e.parentElement.dataset.id} type="hidden"><br>
-            <input type="submit">
+        Venue: <input id="concert-venue"><br>
+        Date: <input id="concert-date"><br>
+        City: <input id="concert-city"><br>
+        State: <input id="concert-state"><br>
+        <input id="concert-artist-id" value=${e.parentElement.dataset.id} type="hidden"><br>
+        <input id="form-button" type="submit">
         </form>
         </p>
         -------------------------------------------------------------
         `
+        const newConcertForm = document.getElementById('new-concert-form')
+        newConcertForm.addEventListener('submit', handleConcertSubmit)
     }
 
-    appendConcertToDom() {
-        debugger;
-    }
 }

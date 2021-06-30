@@ -18,7 +18,7 @@ function handleSubmit() {
 
 // concert class
 const concertService = new ConcertService(base_url)
-Concert.concertForm.addEventListener('submit', handleConcertSubmit)
+// Concert.newConcertForm.addEventListener('submit', handleConcertSubmit)
 
 function handleConcertSubmit() {
     debugger;

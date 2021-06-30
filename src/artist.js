@@ -20,7 +20,7 @@ class Artist {
     artistHTML() {
         this.element.innerHTML += `
         <p>${this.name}</p>
-        <div id="artist-${this.id}-concert-container" input="hidden">
+        <div id="artist-${this.id}-concert-container">
         </div>
         <button>Concerts</button>
         <button>Delete</button>

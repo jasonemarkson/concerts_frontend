@@ -15,7 +15,8 @@ class ConcertService {
         })
     }
 
-    createConcert(e) {
+    createConcert() {
+        const artistId = event.target.parentElement.parentElement.dataset.id
         const concert = {
             venue: document.getElementById('concert-venue').value,
             date: document.getElementById('concert-date').value,
@@ -32,10 +33,11 @@ class ConcertService {
             body: JSON.stringify(concert)
         }
 
-        fetch(`${base_url}/artists/${e.parentElement.dataset.id}/concerts`, configObj)
+        fetch(`${base_url}/artists/${artistId}/concerts`, configObj)
         .then(response => response.json())
         .then(concert => {
             const c = new Concert(concert)
+            debugger;
             c.appendConcertToDom()
         })
     }
