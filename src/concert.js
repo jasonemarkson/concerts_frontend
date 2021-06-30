@@ -24,10 +24,15 @@ class Concert {
         const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
         concertContainer.append(li)
 
+
+    }
+
+    static newConcertButtonHTML(id) {
         // add concert button
+        const concertContainer = document.getElementById(`artist-${id}-concert-container`)
         const newConcertButton = document.createElement('button')
         newConcertButton.innerText = "Add Concert"
-        concertContainer.append(newConcertButton)
+        concertContainer.appendChild(newConcertButton)
         newConcertButton.addEventListener('click', () => {
             Concert.renderForm(this)
         })
@@ -55,5 +60,11 @@ class Concert {
         const newConcertForm = document.getElementById('new-concert-form')
         newConcertForm.addEventListener('submit', handleConcertSubmit)
     }
+
+    appendConcertToDom() {
+        debugger;
+    }
+
+
 
 }

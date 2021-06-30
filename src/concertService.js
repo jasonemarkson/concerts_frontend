@@ -12,6 +12,7 @@ class ConcertService {
                 const c = new Concert(concert);
                 c.concertHTML()
             }
+            Concert.newConcertButtonHTML(id)
         })
     }
 
@@ -22,9 +23,9 @@ class ConcertService {
             date: document.getElementById('concert-date').value,
             city: document.getElementById('concert-city').value,
             state: document.getElementById('concert-state').value,
-            artist_id: document.getElementById('concert-artist_id').value
+            artist_id: artistId
+            //  --- how do I associate concert to artist or will it associate when it posts to this route
         }
-
         const configObj = {
             method: "POST",
             headers: {
@@ -33,11 +34,10 @@ class ConcertService {
             body: JSON.stringify(concert)
         }
 
-        fetch(`${base_url}/artists/${artistId}/concerts`, configObj)
+        fetch(`${base_url}/concerts`, configObj)
         .then(response => response.json())
         .then(concert => {
             const c = new Concert(concert)
-            debugger;
             c.appendConcertToDom()
         })
     }
