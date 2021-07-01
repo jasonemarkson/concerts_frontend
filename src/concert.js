@@ -19,12 +19,11 @@ class Concert {
 
     concertHTML() {
         let li = document.createElement('li');
-        li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state}`;
+        li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state} <button>Remove</button>`;
         li.style.fontWeight = 'normal'
+        li.id = `${this.id}`
         const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
         concertContainer.append(li)
-
-
     }
 
     static newConcertButtonHTML(id) {
@@ -62,9 +61,7 @@ class Concert {
     }
 
     appendConcertToDom() {
-        debugger;
+        this.concertHTML()
     }
-
-
 
 }

@@ -57,6 +57,12 @@ class Artist {
             button.previousElementSibling.innerText = ""
             button.innerText = "Concerts"
         }
+        else if (button.innerText === "Remove") {
+            let concert = event.target.previousSibling.parentElement
+            concertService.deleteConcert(concert)
+            // debugger;
+
+        }
     }
 
 }

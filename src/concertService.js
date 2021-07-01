@@ -41,4 +41,21 @@ class ConcertService {
             c.appendConcertToDom()
         })
     }
+
+    deleteConcert(concert) {
+        concert.remove()
+        
+        let configObj = {
+            method: 'Delete',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        
+        fetch(`${base_url}/concerts/${concert.id}`, configObj)
+        .then(response => response.json())
+        .then(json => 
+            alert(json.message)
+        )
+    }
 }
