@@ -60,8 +60,4 @@ class Concert {
         newConcertForm.addEventListener('submit', handleConcertSubmit)
     }
 
-    appendConcertToDom() {
-        this.concertHTML()
-    }
-
 }

@@ -38,7 +38,7 @@ class ConcertService {
         .then(response => response.json())
         .then(concert => {
             const c = new Concert(concert)
-            c.appendConcertToDom()
+            c.concertHTML()
         })
     }
 
@@ -51,7 +51,7 @@ class ConcertService {
                 "Content-Type": "application/json"
             }
         }
-        
+
         fetch(`${base_url}/concerts/${concert.id}`, configObj)
         .then(response => response.json())
         .then(json => 
