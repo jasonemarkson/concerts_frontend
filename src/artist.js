@@ -9,6 +9,7 @@ class Artist {
         this.name = name;
         
         this.element = document.createElement('h3');
+        this.element.className += "border-black border-t-4"
         this.element.dataset.id = this.id;
         this.element.id = `artist-${this.id}`;
         this.element.addEventListener('click', this.handleClick)
@@ -19,11 +20,12 @@ class Artist {
 
     artistHTML() {
         this.element.innerHTML += `
-        <p class="font-bold">${this.name}</p>
+        <p class="font-bold text-3xl">${this.name}</p>
         <div id="artist-${this.id}-concert-container" class="border-style: solid p-1.5">
+        <br>
         </div>
-        <button class="bg-gray-400 text-black --tw-border-opacity: 1;">Concerts</button><br>
-        <button class="bg-red-400 text-black --tw-border-opacity: 1;">Delete</button>
+        <button class="bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2">Concerts</button><br>
+        <button class="bg-red-400 text-black --tw-border-opacity: 1; border-black border-2">Delete</button>
         `
         
         return this.element

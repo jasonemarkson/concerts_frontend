@@ -31,7 +31,7 @@ class Concert {
         const concertContainer = document.getElementById(`artist-${id}-concert-container`)
         const newConcertButton = document.createElement('button')
         newConcertButton.innerText = "Add Concert"
-        newConcertButton.className +='bg-gray-400 text-black --tw-border-opacity: 1;'
+        newConcertButton.className +='bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2'
         concertContainer.appendChild(newConcertButton)
         newConcertButton.addEventListener('click', () => {
             Concert.renderForm(this)
@@ -47,12 +47,12 @@ class Concert {
         <p>
         <h4>Add a new ${artistName} Concert</h4>
         <form id='new-concert-form'>
-        Venue: <input id="concert-venue"><br>
-        Date: <input id="concert-date"><br>
-        City: <input id="concert-city"><br>
-        State: <input id="concert-state"><br>
+        Venue: <input class="bg-gray-300 border-black border-2" id="concert-venue"><br>
+        Date: <input class="bg-gray-300 border-black border-2" id="concert-date"><br>
+        City: <input class="bg-gray-300 border-black border-2" id="concert-city"><br>
+        State: <input class="bg-gray-300 border-black border-2" id="concert-state"><br>
         <input id="concert-artist-id" value=${e.parentElement.dataset.id} type="hidden"><br>
-        <input id="form-button" type="submit">
+        <input id="form-button" type="submit"  class="border-black border-2">
         </form>
         </p>
         -------------------------------------------------------------
