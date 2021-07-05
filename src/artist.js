@@ -19,11 +19,11 @@ class Artist {
 
     artistHTML() {
         this.element.innerHTML += `
-        <p>${this.name}</p>
-        <div id="artist-${this.id}-concert-container">
+        <p class="font-bold">${this.name}</p>
+        <div id="artist-${this.id}-concert-container" class="border-style: solid p-1.5">
         </div>
-        <button>Concerts</button>
-        <button>Delete</button>
+        <button class="bg-gray-400 text-black --tw-border-opacity: 1;">Concerts</button><br>
+        <button class="bg-red-400 text-black --tw-border-opacity: 1;">Delete</button>
         `
         
         return this.element

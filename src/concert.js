@@ -31,6 +31,7 @@ class Concert {
         const concertContainer = document.getElementById(`artist-${id}-concert-container`)
         const newConcertButton = document.createElement('button')
         newConcertButton.innerText = "Add Concert"
+        newConcertButton.className +='bg-gray-400 text-black --tw-border-opacity: 1;'
         concertContainer.appendChild(newConcertButton)
         newConcertButton.addEventListener('click', () => {
             Concert.renderForm(this)
