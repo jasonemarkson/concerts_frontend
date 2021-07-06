@@ -19,7 +19,8 @@ class Concert {
 
     concertHTML() {
         let li = document.createElement('li');
-        li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state} <button>Remove</button>`;
+        li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state} <button class="bg-gray-300 hover:bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2">Remove</button>`;
+        li.className += 'text-lg'
         li.style.fontWeight = 'normal'
         li.id = `${this.id}`
         const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
@@ -31,7 +32,7 @@ class Concert {
         const concertContainer = document.getElementById(`artist-${id}-concert-container`)
         const newConcertButton = document.createElement('button')
         newConcertButton.innerText = "Add Concert"
-        newConcertButton.className +='bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2'
+        newConcertButton.className +='bg-gray-300 hover:bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2'
         concertContainer.appendChild(newConcertButton)
         newConcertButton.addEventListener('click', () => {
             Concert.renderForm(this)
