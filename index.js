@@ -3,12 +3,21 @@
 // any global variables
 // artist class
 const base_url = 'http://localhost:3000'
+
 const artistService = new ArtistService(base_url)
 
-Artist.artistForm.addEventListener('submit', handleSubmit)
+const concertService = new ConcertService(base_url)
 
-artistService.getArtists()
-Artist.renderForm()
+document.addEventListener('DOMContentLoaded', () => {
+
+    Artist.artistForm.addEventListener('submit', handleSubmit)
+
+    artistService.getArtists()
+    Artist.renderForm()
+    
+})
+
+
 
 function handleSubmit() {
     event.preventDefault()
@@ -17,7 +26,7 @@ function handleSubmit() {
 }
 
 // concert class
-const concertService = new ConcertService(base_url)
+
 
 function handleConcertSubmit() {
     event.preventDefault()

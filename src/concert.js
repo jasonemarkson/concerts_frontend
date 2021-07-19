@@ -1,6 +1,5 @@
 class Concert {
     static all = []
-    // static newConcertForm = document.getElementById('new-concert-form')
     
     constructor({id, venue, date, city, state, artist_id}) {
         this.id = id;
