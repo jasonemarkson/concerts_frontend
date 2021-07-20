@@ -8,13 +8,11 @@ class ArtistService {
         fetch(`${base_url}/artists`)
         .then(response => response.json())
         .then(artists => {
-            console.log("a")
             for (const artist of artists) {
             const a = new Artist(artist)
             a.appendToDom()
             }
         })
-        console.log("b")
     }
 
     createArtist() {

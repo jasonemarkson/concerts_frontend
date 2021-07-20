@@ -4,17 +4,18 @@ class ConcertService {
         this.endpoint = endpoint
     }
 
-    getArtistsConcerts(id) {
-        fetch(`${base_url}/artists/${id}/concerts`)
-        .then(response => response.json())
-        .then(concerts => {
-            for (const concert of concerts) {
-                const c = new Concert(concert);
-                c.concertHTML()
-            }
-            Concert.newConcertButtonHTML(id)
-        })
-    }
+    // getArtistsConcerts(id) {
+    //     fetch(`${base_url}/artists/${id}`)
+    //     .then(response => response.json())
+    //     .then(concerts => {
+    //         let concertsArray = concerts["concerts"]
+    //         for (const concert of concertsArray) {
+    //             const c = new Concert(concert);
+    //             c.concertHTML()
+    //         }
+    //         Concert.newConcertButtonHTML(id)
+    //     })
+    // }
 
     createConcert() {
         const artistId = event.target.parentElement.parentElement.dataset.id

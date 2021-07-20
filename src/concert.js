@@ -1,22 +1,23 @@
 class Concert {
-    static all = []
     
-    constructor({id, venue, date, city, state, artist_id}) {
+    constructor({id, venue, date, city, state, artist_id, artist}) {
         this.id = id;
         this.venue = venue;
         this.date = date;
         this.city = city;
         this.state = state;
         this.artist_id = artist_id;
+        this.artist = artist;
 
-        this.element = document.createElement('li');
-        this.element.dataset.id = this.id;
-        this.element.id = `concert-${this.id}`;
-    
-        Concert.all.push(this)
+        this.concertHTML();
     }
 
     concertHTML() {
+        debugger;
+        this.element = document.createElement('li');
+        this.element.dataset.id = this.id;
+        this.element.id = `concert-${this.id}`;
+
         let li = document.createElement('li');
         li.innerHTML = `${this.venue} // ${this.date} // ${this.city}, ${this.state} <button class="bg-gray-300 hover:bg-gray-400 text-black --tw-border-opacity: 1; border-black border-2">Remove</button>`;
         li.className += 'text-lg'

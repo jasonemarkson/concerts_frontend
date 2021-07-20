@@ -1,24 +1,24 @@
 class Artist {
     // remember objects -- static is like constant in Ruby
-    static all = []
     static artistContainer = document.getElementById('artist-container')
     static artistForm = document.getElementById('artist-form')
 
-    constructor({id, name}) {
+    constructor({id, name, concerts}) {
         this.id = id;
         this.name = name;
-        
+        this.concerts = concerts
+
+        this.artistHTML()   
+
+    }
+
+    artistHTML() {
         this.element = document.createElement('h3');
         this.element.className += "border-black border-t-4 mx-auto px-4"
         this.element.dataset.id = this.id;
         this.element.id = `artist-${this.id}`;
         this.element.addEventListener('click', this.handleClick)
-        this.artistHTML()   
-
-        Artist.all.push(this)
-    }
-
-    artistHTML() {
+        
         this.element.innerHTML += `
         <p class="font-semibold text-3xl">${this.name}</p>
         <div id="artist-${this.id}-concert-container" class="border-style: solid p-1.5">
@@ -52,7 +52,10 @@ class Artist {
             artistService.deleteArtist(id)
         } 
         else if (button.innerText === "Concerts") {
-            concertService.getArtistsConcerts(id)
+            // concertService.getArtistsConcerts(id)
+            debugger;
+            concertHTML()
+            // Concert.concertHTML(this) 
             button.innerText = "Close"
         }
         else if (button.innerText === "Close") {
