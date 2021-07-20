@@ -8,12 +8,9 @@ class Concert {
         this.state = state;
         this.artist_id = artist_id;
         this.artist = artist;
-
-        this.concertHTML();
     }
 
     concertHTML() {
-        debugger;
         this.element = document.createElement('li');
         this.element.dataset.id = this.id;
         this.element.id = `concert-${this.id}`;

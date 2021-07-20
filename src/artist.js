@@ -1,14 +1,18 @@
 class Artist {
     // remember objects -- static is like constant in Ruby
+    static all = []
     static artistContainer = document.getElementById('artist-container')
     static artistForm = document.getElementById('artist-form')
 
     constructor({id, name, concerts}) {
         this.id = id;
         this.name = name;
-        this.concerts = concerts
+        this.concerts = concerts.map(concert => {
+            return new Concert(concert)
+        })
 
-        this.artistHTML()   
+        Artist.all.push(this)
+        this.artistHTML()
 
     }
 
@@ -52,10 +56,10 @@ class Artist {
             artistService.deleteArtist(id)
         } 
         else if (button.innerText === "Concerts") {
-            // concertService.getArtistsConcerts(id)
-            debugger;
-            concertHTML()
-            // Concert.concertHTML(this) 
+            const a = Artist.all.find(artist => artist.id === parseInt(id))
+            a.concerts.forEach(concert => {
+                concert.concertHTML()
+            })
             button.innerText = "Close"
         }
         else if (button.innerText === "Close") {
