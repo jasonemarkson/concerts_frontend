@@ -11,12 +11,9 @@ const artistService = new ArtistService(base_url)
 const concertService = new ConcertService(base_url)
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    Artist.artistForm.addEventListener('submit', handleSubmit)
-
     artistService.getArtists()
     Artist.renderForm()
-    
+    Artist.artistForm.addEventListener('submit', handleSubmit)
 })
 
 

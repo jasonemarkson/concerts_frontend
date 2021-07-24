@@ -4,19 +4,6 @@ class ConcertService {
         this.endpoint = endpoint
     }
 
-    // getArtistsConcerts(id) {
-    //     fetch(`${base_url}/artists/${id}`)
-    //     .then(response => response.json())
-    //     .then(concerts => {
-    //         let concertsArray = concerts["concerts"]
-    //         for (const concert of concertsArray) {
-    //             const c = new Concert(concert);
-    //             c.concertHTML()
-    //         }
-    //         Concert.newConcertButtonHTML(id)
-    //     })
-    // }
-
     createConcert() {
         const artistId = event.target.parentElement.parentElement.dataset.id
         const concert = {
@@ -25,7 +12,6 @@ class ConcertService {
             city: document.getElementById('concert-city').value,
             state: document.getElementById('concert-state').value,
             artist_id: artistId
-            //  --- how do I associate concert to artist or will it associate when it posts to this route
         }
         const configObj = {
             method: "POST",
