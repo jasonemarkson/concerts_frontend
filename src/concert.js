@@ -22,6 +22,7 @@ class Concert {
         li.id = `${this.id}`
         const concertContainer = document.getElementById(`artist-${this.artist_id}-concert-container`)
         concertContainer.append(li)
+
     }
 
     static newConcertButtonHTML(id) {

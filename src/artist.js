@@ -61,6 +61,7 @@ class Artist {
                 concert.concertHTML()
             })
             button.innerText = "Close"
+            Concert.newConcertButtonHTML(id)
         }
         else if (button.innerText === "Close") {
             let div = button.parentElement.getElementsByTagName('div')[0]
