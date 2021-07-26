@@ -26,6 +26,8 @@ class ConcertService {
         .then(concert => {
             const c = new Concert(concert)
             // find the artist -- a.concerts.push(c)
+            const a = Artist.all.find(artist => artist.id === c.artist_id)
+            a.concerts.push(c)
             c.concertHTML()
 
         })

@@ -1,13 +1,12 @@
 class Concert {
     
-    constructor({id, venue, date, city, state, artist_id, artist}) {
+    constructor({id, venue, date, city, state, artist_id}) {
         this.id = id;
         this.venue = venue;
         this.date = date;
         this.city = city;
         this.state = state;
         this.artist_id = artist_id;
-        this.artist = artist;
     }
 
     concertHTML() {
