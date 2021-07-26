@@ -25,7 +25,9 @@ class ConcertService {
         .then(response => response.json())
         .then(concert => {
             const c = new Concert(concert)
+            // find the artist -- a.concerts.push(c)
             c.concertHTML()
+
         })
     }
 

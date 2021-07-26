@@ -32,6 +32,7 @@ class ArtistService {
         .then(response => response.json())
         .then(artist => {
             const ar = new Artist(artist)
+            console.log(ar)
             ar.appendToDom()
         })
     }
